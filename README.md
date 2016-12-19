@@ -18,9 +18,9 @@ Need to separate (filter out) spurious relations
 1. Entity relations: MPI, Pirro
 2. Scalable graph mining:
   * represent graph in vector space:
-    * Percy Liang (Stanford)
-    * graph2vec
+      * Percy Liang (Stanford)
+      *  graph2vec
   * precompute structure indices
-    * NSI, e.g. APSP (Rattigan)
+      * NSI, e.g. APSP (Rattigan)
   * graph summary
-    * Stephane Campinas
+      * Stephane Campinas
