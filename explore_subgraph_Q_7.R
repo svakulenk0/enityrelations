@@ -16,7 +16,8 @@ sum_sp <- function(graph, q){
 
 # My full graph
 library(readr)
-edges <- read_csv("~/Downloads/categories_7.csv")
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+edges <- read_csv("data/categories_7.csv")
 library('igraph')
 graph <- graph.data.frame(edges)
 

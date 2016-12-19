@@ -38,7 +38,8 @@ colnames(y) <- combn(colnames(x), 2L, paste, collapse = "")
 y
 
 library(readr)
-edges <- read_csv("~/Downloads/categories.csv")
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+edges <- read_csv("data/categories.csv")
 # neighbors <- edges[ which(edges$V3<4),]
 
 library(igraph)
@@ -180,7 +181,7 @@ sum_sp <- function(graph, q){
 
 # My full graph
 library(readr)
-edges <- read_csv("~/Downloads/categories_7.csv")
+edges <- read_csv("data/categories_7.csv")
 graph <- graph.data.frame(edges)
 
 q = c("Viktor_Yanukovych", "Yulia_Tymoshenko", "Vladimir_Putin")
@@ -328,7 +329,7 @@ library(igraph)
 
 # My full graph
 library(readr)
-edges <- read_csv("~/Downloads/categories.csv")
+edges <- read_csv("data/categories.csv")
 Gi <- graph.data.frame(edges)
 
 
