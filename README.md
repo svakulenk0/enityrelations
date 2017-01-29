@@ -11,7 +11,7 @@ Use DBpedia entities to cluster tweets
 
 ### Results
 * Hierarchical clustering of DBpedia entities
-![](results/10_hclust.png)
+<img src="results/10_hclust.png" width="200">
 * Entity-relation subgraphs
     * Tymoshenko-Putin-Yanukovych
 
