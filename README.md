@@ -1,35 +1,50 @@
-## Wiki2Topic
+## Entity Relations
 
 ### Task
 Use DBpedia entities to cluster tweets
 
 ### Approach
 
-1. Induce entity subgraph: find relations between DBpedia entities in the DBpedia KG
-2. Choose cluster labels: nodes in KG used to cluster the input entities
+1. Induce entity subgraph: find relations between DBpedia entities in the DBpedia knowledge graph
+2. Choose cluster labels: choose nodes in the knowledge graph used to cluster the input entities
 
 
 ### Results
-
-* [Hierarchical clustering of DBpedia entities](https://gitlab.semanticlab.net/vendi/wiki2topic/blob/master/results/10_hclust.pdf)
+* ![Hierarchical clustering of DBpedia entities](results/10_hclust.pdf)
 * Entity-relation (cluster) subgraphs:
-    * [Tymoshenko-Putin-Yanukovych](https://gitlab.semanticlab.net/vendi/wiki2topic/blob/master/results/connectorsTYP.pdf)
-    * [Hryvnia-Ukrainian_crisis](https://gitlab.semanticlab.net/vendi/wiki2topic/blob/master/results/ukrainecrisis_hryvnia.pdf)
-    * [Bible-Ramis](https://gitlab.semanticlab.net/vendi/wiki2topic/blob/master/results/bible_ramis.pdf)
-    * [Uganda-JerusalemPost](https://gitlab.semanticlab.net/vendi/wiki2topic/blob/master/results/uganda_jerusalempost.png)
+    * ![Tymoshenko-Putin-Yanukovych](results/connectorsTYP.pdf)
+    * ![Hryvnia-Ukrainian_crisis](results/ukrainecrisis_hryvnia.pdf)
+    * ![Bible-Ramis](results/bible_ramis.pdf)
+    * Uganda-JerusalemPost
+    ![Uganda-JerusalemPost](results/uganda_jerusalempost.png)
 
-### Insights
+### TODO
 
-Need to separate (filter out) spurious relations
+* characterize entity relation subgraph
+* separate common from spurious relations
 
 ### Related Work
 
-1. Entity relations: MPI, Pirro
-2. Scalable graph mining:
+#### Entity relations
+
+1. [ESPRESSO (MPI)](http://espresso.mpi-inf.mpg.de/)
+
+1.1 [ESPRESSO: Explaining Relationships between Entity Sets. S Seufert, K Berberich, SJ Bedathur, SK Kondreddi… CIKM, 2016](https://people.mpi-inf.mpg.de/~kberberi/publications/2016-cikm2016-2.pdf)
+
+1.2. [Instant Espresso: Interactive Analysis of Relationships in Knowledge Graphs. Stephan Seufert, Patrick Ernst, Srikanta J. Bedathur, Sarath Kumar Kondreddi, Klaus Berberich, and Gerhard Weikum. WWW. 2016](http://www2016.net/proceedings/companion/p251.pdf)
+
+* Pirro
+
+#### Scalable graph mining
   * represent graph in vector space:
       * Percy Liang (Stanford)
-      *  graph2vec
+      * graph2vec
+      * subgraph2vec: Learning Distributed Representations of Rooted Sub-graphs from Large Graphs
+
   * precompute structure indices
-      * NSI, e.g. APSP (Rattigan)
+
+      * Exploiting Network Structure for Active Inference in Collective Classification. Matthew J. Rattigan. ICDM.
+
+
   * graph summary
       * Stephane Campinas
