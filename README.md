@@ -11,11 +11,11 @@ Use DBpedia entities to cluster tweets
 
 ### Results
 * Hierarchical clustering of DBpedia entities
-![](results/10_hclust.pdf)
-* Entity-relation subgraphs:
-    * Tymoshenko-Putin-Yanukovych ![](results/connectorsTYP.pdf)
-    * Hryvnia-Ukrainian_crisis ![](results/ukrainecrisis_hryvnia.pdf)
-    * Bible-Ramis ![](results/bible_ramis.pdf)
+![](results/10_hclust.png)
+* Entity-relation subgraphs
+    * Tymoshenko-Putin-Yanukovych ![](results/connectorsTYP.png)
+    * Hryvnia-Ukrainian_crisis ![](results/ukrainecrisis_hryvnia.png)
+    * Bible-Ramis ![](results/bible_ramis.png)
     * Uganda-JerusalemPost
     ![](results/uganda_jerusalempost.png)
 
