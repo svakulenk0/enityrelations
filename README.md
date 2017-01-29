@@ -19,12 +19,14 @@ Use DBpedia entities to cluster tweets
     * Hryvnia-Ukrainian_crisis
 
      ![](results/ukrainecrisis_hryvnia.png)
-    * Bible-Ramis
 
-     ![](results/bible_ramis.png)
     * Uganda-JerusalemPost
 
     ![](results/uganda_jerusalempost.png)
+
+    * Bible-Ramis
+
+     ![](results/bible_ramis.png)
 
 ### TODO
 
