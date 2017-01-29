@@ -17,18 +17,20 @@ sum_sp <- function(graph, q){
 # My full graph
 library(readr)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-edges <- read_csv("data/categories_7.csv")
+edges <- read_csv("../data/categories_7.csv")
 library('igraph')
 graph <- graph.data.frame(edges)
 
 q3 = c("Viktor_Yanukovych", "Yulia_Tymoshenko", "Vladimir_Putin")
 q10 = c("Viktor_Yanukovych", "Yulia_Tymoshenko", "Vladimir_Putin", "Ukrainian_hryvnia", "Uganda_Anti-Homosexuality_Act,_2014", "The_Jerusalem_Post", "Harold_Ramis", "Bible", "Media_portrayal_of_the_Ukrainian_crisis", "Childhood_obesity")
-q <- q2
+q <- q10
 
 # Compute pair-wise similarities (euclidean distances) betw Q 
 ## (on the whole but undirected graph)
 shortest_paths = distances(graph, v=V(graph)[q], to=V(graph), weights=NA, mode='all')
 dim(shortest_paths)
+# shortest_paths matrix
+
 similarities <- dist(shortest_paths)
 ## (on directed subgraph for each combination in Q)
 # generate all combinations with shortest distance sum (Inf if unreachable through the node r)
@@ -78,11 +80,11 @@ length(q)
 
 # select the closest (most similar) entities
 q = c("Viktor_Yanukovych", "Yulia_Tymoshenko")
-q = c("Viktor_Yanukovych", "Vladimir_Putin")
+q = c("Viktor_Yanukovych", "Vladimir_Putin", "Yulia_Tymoshenko")
 # q = c("Category:Politics_of_Ukraine", "Vladimir_Putin") 
 q = c("Uganda_Anti-Homosexuality_Act,_2014", "The_Jerusalem_Post")
-q = c("Ukrainian_hryvnia", "Media_portrayal_of_the_Ukrainian_crisis")
-q = c("Harold_Ramis", "Bible")
+# q = c("Ukrainian_hryvnia", "Media_portrayal_of_the_Ukrainian_crisis")
+# q = c("Harold_Ramis", "Bible")
 
 # Construct a subrgaph describing the relations between the entities
 wiener <- sum_sp(graph, q)
@@ -90,7 +92,7 @@ wiener <- wiener[order(-wiener$SUM),]
 # select closest common categories 3 6 7 8  9 10
 # q2 2 3 4
 # TODO select limit based on the distances in wiener matrix! (keep size of the subgraph managable)
-limit = 7
+limit = 5
 cattable <- wiener[ which(wiener$SUM<limit),]
 cats = rownames(cattable)
 print(length(cats))
@@ -142,8 +144,10 @@ V(g3)
 
 # gr <- g2
 # plot subgraph
-cats_here = unlist(V(graph)[cats]$name)
-vcol <- rep("gray40", vcount(g2))
+cats_here = unlist(V(g3)[cats]$name)
+vcol <- rep("gray40", vcount(g3))
+
+# mark red the common categories nodes
 vcol[as.vector(V(g3)[cats_here])] <- "red"
 vcol[as.vector(V(g3)[q])] <- "green"
 plot(g3, vertex.size=0, edge.arrow.size=0.2, vertex.label.color=vcol)
@@ -166,3 +170,4 @@ metrics <- data.frame(
 
 
 #=============================
+
