@@ -1,7 +1,7 @@
-## Entity Relations
+## Untangling Entity Relations in the Knowledge Graph
 
-### Task
-Use DBpedia entities to cluster tweets
+### Idea
+Use Knowledge Graph (DBpedia) as a proxy for clustering (e.g. tweets) using entity linking.
 
 ### Approach
 
@@ -14,23 +14,50 @@ Use DBpedia entities to cluster tweets
 <img src="results/10_hclust.png" width="800">
 * Entity-relation subgraphs
     * Tymoshenko-Putin-Yanukovych
-
+(depth: 1, cores: 1, symmetry: 1, paths: 1)
      ![](results/connectorsTYP.png)
-    * Hryvnia-Ukrainian_crisis
+    * Hryvnia-Ukrainian_crisis (depth: 4, cores: 1, symmetry: 1/3, paths: 1)
 
      ![](results/ukrainecrisis_hryvnia.png)
 
-    * Uganda-JerusalemPost
+    * Uganda-JerusalemPost (depth: 7, cores: 3, symmetry: [3/4, 3/4, 4/3], paths: 2, betweenness: Uganda)
 
     ![](results/uganda_jerusalempost.png)
 
-    * Bible-Ramis
+    * Bible-Ramis (depth: 5, cores: 3, symmetry: [1/4, 2/3, 2/3], paths: 2, betweenness: Jewish_literature)
 
      ![](results/bible_ramis.png)
 
+* Tymoshenko-Putin-Yanukovych full subgraph
+
+min distance = 3 edges (Living people)
+=> depth = 3/3 = 1 edge on average
+
+max distance path = 114 edges (History of the Pacific Ocean)
+
+|C| = 6,790 (cores/categories)
+
+![](results/TYPdistribution.png)
+
+1. Induce subgraph with distance < 10: |V| = 98 |C| = 25
+2. Remove terminal nodes |Q|=3 => connected components = 3
+
+  - People (|V| = 3 = |C|, depth: [1, 2, 3], symmetry: 1, paths: 1)
+  ![](results/peopleTYP.png)
+
+  - Alumni_by_university_or_college_in_Europe (|V| = 6, |C| = 1, depth: 3, symmetry: 1, paths: 1)
+  ![](results/universityTYP.png)
+
+  - Politics (|V| = 86)
+
+
+
+
+
+
+
 ### TODO
 
-* characterize entity relation subgraph
 * separate common from spurious relations
 
 ### Related Work
