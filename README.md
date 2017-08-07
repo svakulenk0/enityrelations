@@ -90,6 +90,10 @@ distance < 5 =>
 
 * The Minimum Wiener Connector Problem. SIGMOD. 2015
 
+#### Cluster labeling with KB
+1. [Unsupervised Graph-based Topic Labelling using DBpedia](http://delivery.acm.org/10.1145/2440000/2433454/p465-hulpus.pdf?ip=137.208.130.233&id=2433454&acc=ACTIVE%20SERVICE&key=9074CF143665B1C6%2E1A7B498D2A756B13%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=969687993&CFTOKEN=11258390&__acm__=1502135074_2edea84941e47176dc4884e4081eb5d9)
+
+
 #### Scalable graph mining
   * represent graph in vector space:
       * Percy Liang (Stanford)
